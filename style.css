@@ -1,0 +1,13 @@
+.area {
+    width: 85%;
+    display: inline-block;
+    background: lightblue;
+    height: 100vh;
+    position: relative;
+}
+.yellow {
+    width: 10%;
+    display: inline-block;
+    background: yellow;
+    height: 100vh;
+}
