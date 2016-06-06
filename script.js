@@ -1,7 +1,7 @@
 /**
  * Created by Tomer on 20/05/2016.
  */
-jQuery( function () {
+//jQuery( function () {
     // create and remove the the ball randomly
     var createball = function () {
         var diameter = Math.floor(Math.random() * (150 - 20 + 1)) + 20,
@@ -15,7 +15,7 @@ jQuery( function () {
                 height : diameter,
                 borderRadius : '50%'
             });
-        ball = ball.animate({top:'90vh'},600, function(){
+        ball = ball.velocity({top:'90vh'},600, function(){
             $(this).remove();
         });
         return ball;
@@ -30,22 +30,33 @@ jQuery( function () {
             var bullet = $('<div class="bullet">')
                 .css('top',e.clientY);
             $('.area').append(bullet);
-            $(bullet).animate({right:'95vw'},500, function () {
-                $(this).remove();
-            })
+            $(bullet).velocity({right:'95vw'}, {
+                duration: 500,
+                progress: hit(),
+                complete: function () {
+                    $(this).remove();
+                }
+            });
         })
 
 
     }
+
+    // checks if hit
+    var hit = function(){
+        var balls = $('.ball'),
+            bullet = $('.bullet');
+        console.log(balls);
+        console.log(bullet.position());
+    }
+
     
 
     // create the bullet and listen to the mouse click event
 
-    
-    $('.area').append(createball())
+
     setInterval(function(){
         $('.area').append(createball());
-
     },200);
 
     createbullet();
@@ -53,4 +64,4 @@ jQuery( function () {
 
 
 
-});
+//});

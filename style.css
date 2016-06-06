@@ -13,7 +13,7 @@
     height: 100vh;
 }
 .custom {
-    cursor: url('src'), auto;
+    cursor: url(revolver_2c.png), auto;
 }
 .bullet {
     position: absolute;
