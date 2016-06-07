@@ -16,12 +16,12 @@
                 background : color,
                 width : diameter,
                 height : diameter,
-                //borderRadius : '50%'
+                borderRadius : '50%'
             });
         ballsArr.push(ball);
         ball = ball.velocity({top:'90vh'},3000, function(){
             $(this).remove();
-            ballsArr.pop();
+            ballsArr.shift();
         });
         return ball;
     }
@@ -46,7 +46,6 @@
                 //    check collision
                     var ballsL = ballsArr.length;
                     var i = 0 ;
-                    console.log(ballsL)
                     for (i=0;i < ballsL;i++) {
                         var carrentx =  ballsArr[i].offset().left;
                         var carrenty =  ballsArr[i].offset().top;
@@ -80,7 +79,7 @@
 
     setInterval(function(){
         $('.area').append(createball());
-    },1500);
+    },500);
 
     createbullet();
 
