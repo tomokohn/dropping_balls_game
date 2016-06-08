@@ -58,6 +58,7 @@
                             bulleth + bullety > carrenty) {
                             console.log('hit');
                             $(ballsArr[i]).remove()
+                            $(bullet).remove();
                         }
                     }
                 },
